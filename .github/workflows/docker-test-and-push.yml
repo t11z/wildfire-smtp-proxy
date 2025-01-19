@@ -12,7 +12,7 @@ jobs:
     env:
       DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-      DOCKER_IMAGE_NAME: "DOCKER_HUB_USERNAME/wildfire-proxy"
+      DOCKER_IMAGE_NAME: "$DOCKER_HUB_USERNAME/wildfire-proxy"
 
     steps:
       # Checkout Repository
