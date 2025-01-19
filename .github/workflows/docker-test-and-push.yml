@@ -1,0 +1,45 @@
+name: Build, Test, and Push Docker Image
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Täglich um Mitternacht
+  workflow_dispatch: # Ermöglicht manuelles Triggern
+
+jobs:
+  build-test-push:
+    runs-on: ubuntu-latest
+
+    env:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      DOCKER_IMAGE_NAME: "your_dockerhub_username/wildfire-proxy"
+
+    steps:
+      # Checkout Repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Python for Tests
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+
+      # Run Test Wrapper
+      - name: Run Tests
+        run: python3 test_wrapper.py
+
+      # Build Docker Image
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+      - name: Build Docker Image
+        run: docker build -t $DOCKER_IMAGE_NAME .
+
+      # Push Docker Image
+      - name: Push Docker Image to Docker Hub
+        run: docker push $DOCKER_IMAGE_NAME

@@ -1,0 +1,14 @@
+services:
+  wildfire-smtp-proxy:
+    build: .
+    container_name: smtp-proxy
+    ports:
+      - "1025:1025"
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:alpine"
+    container_name: redis
+    expose:
+      - "6379"

@@ -1,0 +1,7 @@
+aiosmtpd
+celery
+requests
+gunicorn
+python-dotenv
+pan-python
+redis
