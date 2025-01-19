@@ -4,6 +4,12 @@
 
 A lightweight SMTP proxy that scans mails for threats against the Palo Alto Networks WildFire API.
 
+## Disclaimer
+
+```
+⚠️ This is just a proof of concept and not ready for production. Use the code for testing and learning, but not to secure your actual email flow. You have been warned. ⚠️
+```
+
 ## Features
 
 - **SMTP Proxy**: Acts as an intermediary SMTP server to process incoming emails.
