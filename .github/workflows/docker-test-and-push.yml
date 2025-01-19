@@ -2,17 +2,17 @@ name: Build, Test, and Push Docker Image
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Täglich um Mitternacht
-  workflow_dispatch: # Ermöglicht manuelles Triggern
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   build-test-push:
     runs-on: ubuntu-latest
 
     env:
+      DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-      DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-      DOCKER_IMAGE_NAME: "your_dockerhub_username/wildfire-proxy"
+      DOCKER_IMAGE_NAME: "DOCKER_HUB_USERNAME/wildfire-proxy"
 
     steps:
       # Checkout Repository
