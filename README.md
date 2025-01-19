@@ -7,7 +7,8 @@ A lightweight SMTP proxy that scans mails for threats against the Palo Alto Netw
 ## Disclaimer
 
 ```
-⚠️ This is just a proof of concept and not ready for production. Use the code for testing and learning, but not to secure your actual email flow. You have been warned. ⚠️
+⚠️ This is just a proof of concept and not ready for production. Use the code for
+testing and learning, but not to secure your actual email flow. You have been warned. ⚠️
 ```
 
 ## Features
