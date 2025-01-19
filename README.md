@@ -73,10 +73,9 @@ A lightweight SMTP proxy that scans mails for threats against the Palo Alto Netw
 A test script (*test_wrapper.py*) is included to verify the functionality of the proxy.
 
 Run the test script:
-
-    ```bash
-    python3 test_wrapper.py
-    ```
+```bash
+python3 test_wrapper.py
+```
 The script downloads a malicious test sample from Palo Alto Networks WildFire API, sends it through the SMTP proxy, and verifies the results.
 
 # Contributing
